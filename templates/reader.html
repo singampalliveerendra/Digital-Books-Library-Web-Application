@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #f4f6f8;
+        }
+
+        header {
+            background: #1f2937;
+            color: white;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        header a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        iframe {
+            width: 100%;
+            height: calc(100vh - 56px);
+            border: none;
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="/">← Back</a>
+    <strong>{{ title }}</strong>
+</header>
+
+<iframe src="/pdf/{{ pdf_path.split('/')[-1] }}"></iframe>
+
+</body>
+</html>
+

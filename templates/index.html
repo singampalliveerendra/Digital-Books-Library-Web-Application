@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Telugu Digital Library</title>
+
+    <style>
+        :root {
+            --primary: #1f2937;
+            --secondary: #374151;
+            --accent: #2563eb;
+            --bg: #f9fafb;
+            --card: #ffffff;
+            --muted: #6b7280;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--primary);
+        }
+
+        /* ===== Header ===== */
+        header {
+            background: linear-gradient(135deg, #111827, #1f2937);
+            color: white;
+            padding: 28px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #d1d5db;
+        }
+
+        /* ===== Layout ===== */
+        .wrapper {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        /* ===== Grid ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 26px;
+        }
+
+        /* ===== Card ===== */
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .meta {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .meta div {
+            margin-bottom: 4px;
+        }
+
+        /* ===== Button ===== */
+        .btn {
+            display: inline-block;
+            text-align: center;
+            padding: 10px 14px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 18px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 Telugu Digital Library</h1>
+    <p>Curated literature • Read online PDFs</p>
+</header>
+
+<div class="wrapper">
+    <div class="grid">
+        {% for id, title, author, language in books %}
+        <div class="card">
+            <div>
+                <div class="title">{{ title }}</div>
+                <div class="meta">
+                    <div><strong>Author:</strong> {{ author or "Unknown" }}</div>
+                    <div><strong>Language:</strong> {{ language }}</div>
+                </div>
+            </div>
+
+            <a href="/read/{{ id }}" class="btn">
+                Read Book
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>>
+
+</body>
+</html>
+
