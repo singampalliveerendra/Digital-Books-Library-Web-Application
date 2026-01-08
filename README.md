@@ -132,4 +132,4 @@ It provides a scalable foundation for a digital reading platform and can be enha
 ---
 
 ## Author
-Developed by **[Your Name]**  
+Developed by s.VEERENDRA 
